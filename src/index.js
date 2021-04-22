@@ -14,9 +14,18 @@ const { inc, dec, rnd } =
 
 
 const update = () => {
-
+  ReactDOM.render(
+    <Counter
+      counter={store.getState()}
+      inc={inc}
+      dec={dec}
+      rnd={() => {
+        const value = Math.floor(Math.random() * 10);
+        rnd(value);
+      }}
+    />,
+    document.getElementById('root'));
 };
-
+update();
 store.subscribe(update);
 
-ReactDOM.render(<Counter />, document.getElementById('root'));
