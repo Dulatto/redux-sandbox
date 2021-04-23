@@ -1,5 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import { inc, dec, rnd } from '../actions';
 
 const Counter = ({ counter, inc, dec, rnd }) => {
     return (
@@ -23,4 +24,16 @@ const mapStateToProps = (state) => {
         counter: state
     }
 };
-export default connect(mapStateToProps)(Counter);
+
+const mapDispatchToProps = (dispatch) => {
+    return {
+        inc: () => dispatch(inc()),
+        dec: () => dispatch(dec()),
+        rnd: () => {
+            const reandomValue = Math.floor(Math.random() * 10);
+            dispatch(rnd(reandomValue));
+        }
+    }
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(Counter);
