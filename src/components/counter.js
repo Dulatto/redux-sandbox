@@ -1,5 +1,5 @@
 import React from 'react';
-import { bindActionCreators } from 'redux';
+//import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import * as actions from '../actions';
 
@@ -26,17 +26,4 @@ const mapStateToProps = (state) => {
     }
 };
 
-
-const mapDispatchToProps = (dispatch) => {
-    const { inc, dec, rnd } = bindActionCreators(actions, dispatch);
-    return {
-        inc,
-        dec,
-        rnd: () => {
-            const reandomValue = Math.floor(Math.random() * 10);
-            rnd(reandomValue);
-        }
-    }
-};
-
-export default connect(mapStateToProps, mapDispatchToProps)(Counter);
+export default connect(mapStateToProps, actions)(Counter);
