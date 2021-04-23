@@ -9,9 +9,6 @@ import reducer from './reducer';
 
 const store = createStore(reducer);
 
-
-
-
 const update = () => {
   ReactDOM.render(
     <Provider store={store}>
