@@ -9,13 +9,12 @@ import reducer from './reducer';
 
 const store = createStore(reducer);
 
-const update = () => {
-  ReactDOM.render(
-    <Provider store={store}>
-      <App />
-    </Provider>,
-    document.getElementById('root'));
-};
-update();
-store.subscribe(update);
+
+ReactDOM.render(
+  <Provider store={store}>
+    <App />
+  </Provider>,
+  document.getElementById('root'));
+
+
 
